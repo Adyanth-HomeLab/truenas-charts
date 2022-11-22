@@ -20,10 +20,6 @@ Kubernetes: `>=1.16.0-0`
 
 ## Dependencies
 
-| Repository | Name | Version |
-|------------|------|---------|
-| https://truecharts.org/ | common | 3.5.5 |
-
 ## Installing the Chart
 
 To install the chart with the release name `freqtrade`
