@@ -1,0 +1,30 @@
+{{- if .Values.ingress.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: freqtrade
+spec:
+  rules:
+  - host: localhost
+    http:
+      paths:
+      {{- if (and .Values.bot.enabled .Values.config.api_server.enabled) }}
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: freqtrade-ui
+            port:
+              number: 8080
+      {{- end }}
+      {{- if (and .Values.backtesting.results.enable_export .Values.backtesting.results.reader_enabled) }}
+      - path: /results
+        pathType: Prefix
+        backend:
+          service:
+            name: results-reader
+            port:
+              number: 80
+      {{- end }}
+---
+{{- end }}
