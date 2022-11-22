@@ -5,9 +5,8 @@
 ##
 
 image:
-  repository: hub.docker.com/r/freqtradeorg/freqtrade
+  repository: hub.docker.com/r/freqtradeorg/freqtrade/latest
   pullPolicy: IfNotPresent
-  tag: latest
 
 ##
 # Most other defaults are set in questions.yaml

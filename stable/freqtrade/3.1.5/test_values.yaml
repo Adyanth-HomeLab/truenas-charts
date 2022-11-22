@@ -1,9 +1,8 @@
 # Default values for Jackett.
 
 image:
-  repository: hub.docker.com/r/freqtradeorg/freqtrade
+  repository: hub.docker.com/r/freqtradeorg/freqtrade/latest
   pullPolicy: IfNotPresent
-  tag: latest
 
 strategy:
   type: Recreate
