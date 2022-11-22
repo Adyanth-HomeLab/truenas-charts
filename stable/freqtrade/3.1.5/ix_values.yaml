@@ -5,9 +5,9 @@
 ##
 
 image:
-  repository: ghcr.io/truecharts/jackett
+  repository: hub.docker.com/r/freqtradeorg/freqtrade
   pullPolicy: IfNotPresent
-  tag: v0.17.1011
+  tag: latest
 
 ##
 # Most other defaults are set in questions.yaml
