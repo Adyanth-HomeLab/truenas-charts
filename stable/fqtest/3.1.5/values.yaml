@@ -95,14 +95,15 @@ config:
 
 command:
   - freqtrade
-  args:
-    - trade
-    - --config
-    - /freqtrade/config/config.json
-    - --strategy
-    - { { tpl .Values.appConf.strategy_name . } }
-    - --db-url
-    - sqlite:////sqlite/tradesv3.sqlite
+
+args:
+  - trade
+  - --config
+  - /freqtrade/config/config.json
+  - --strategy
+  - { { tpl .Values.appConf.strategy_name . } }
+  - --db-url
+  - sqlite:////sqlite/tradesv3.sqlite
 
 service:
   main:
@@ -114,8 +115,8 @@ service:
 
 volumeClaimTemplates:
   - name: freqtrade-sqlite
-  accessMode: "ReadWriteOnce"
-  size: 1Gi
+    accessMode: "ReadWriteOnce"
+    size: 1Gi
 
 additionalVolumeMounts:
   - mountPath: /freqtrade/config
