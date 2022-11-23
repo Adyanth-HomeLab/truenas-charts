@@ -35,9 +35,9 @@ questions:
       type: dict
       attrs:
         - variable: strategy_name
+          label: "Strategy"
           schema:
             default: "Matoa"
-            label: "Strategy"
             type: string
             hidden: false
             editable: true
