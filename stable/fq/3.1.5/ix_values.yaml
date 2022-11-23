@@ -5,9 +5,9 @@
 ##
 
 image:
-  repository: freqtradeorg/freqtrade
+  base: freqtradeorg/freqtrade
   pullPolicy: IfNotPresent
-  tag: latest
+  tag: develop
 
 ##
 # Most other defaults are set in questions.yaml
