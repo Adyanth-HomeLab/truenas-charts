@@ -34,7 +34,8 @@ questions:
     schema:
       type: string
       default: "Matoa"
-      - variable: strategy_name
+      attrs:
+        - variable: strategy_name
           label: "Strategy"
           description: "bot strategy"
           schema:
