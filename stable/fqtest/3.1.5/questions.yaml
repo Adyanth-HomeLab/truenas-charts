@@ -33,11 +33,11 @@ questions:
     label: "Configure Application"
     schema:
       type: string
+      label: "Strategy"
+      description: "bot strategy"
       default: "Matoa"
       attrs:
         - variable: strategy_name
-          label: "Strategy"
-          description: "bot strategy"
           schema:
             hidden: false
             editable: true
