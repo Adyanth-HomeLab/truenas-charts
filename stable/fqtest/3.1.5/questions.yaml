@@ -32,10 +32,9 @@ questions:
     group: "App Configuration"
     label: "Configure Application"
     schema:
-      type: dict
-      hidden: true
-      attrs:
-        - variable: string
+      type: string
+      default: "Matoa"
+        - variable: strategy_name
           label: "Strategy"
           description: "bot strategy"
           schema:
@@ -86,7 +85,7 @@ questions:
     group: "Configuration"
     schema:
       type: list
-      default: []
+      default: [ ]
       items:
         - variable: environmentVariable
           label: "Environment Variable"
@@ -157,7 +156,7 @@ questions:
                       label: "container port"
                       schema:
                         type: int
-                        default: 9117
+                        default: 10215
                         editable: false
                         hidden: true
                     - variable: targetport
@@ -165,7 +164,7 @@ questions:
                       description: "When connecting internally to this App, you'll need this port"
                       schema:
                         type: int
-                        default: 9117
+                        default: 10215
                         editable: false
                         hidden: true
                     - variable: nodePort
@@ -175,9 +174,9 @@ questions:
                         type: int
                         min: 9000
                         max: 65535
-                        default: 36009
+                        default: 10215
                         required: true
-## TrueCharts Specific
+  ## TrueCharts Specific
   - variable: persistence
     label: "Integrated Persistent Storage"
     group: "Storage"
@@ -241,7 +240,7 @@ questions:
     group: "Storage"
     schema:
       type: list
-      default: []
+      default: [ ]
       items:
         - variable: volumeMount
           label: "Custom Storage"
@@ -333,7 +332,7 @@ questions:
               - variable: entrypoint
                 label: "Select Entrypoint"
                 schema:
-                  show_if: [["certType", "!=", "disabled"]]
+                  show_if: [ [ "certType", "!=", "disabled" ] ]
                   type: string
                   default: "websecure"
                   required: true
@@ -343,9 +342,9 @@ questions:
               - variable: hosts
                 label: "Hosts"
                 schema:
-                  show_if: [["certType", "!=", "disabled"]]
+                  show_if: [ [ "certType", "!=", "disabled" ] ]
                   type: list
-                  default: []
+                  default: [ ]
                   items:
                     - variable: host
                       label: "Host"
@@ -368,13 +367,13 @@ questions:
                 label: "Select TrueNAS SCALE Certificate"
                 schema:
                   type: int
-                  show_if: [["certType", "=", "ixcert"]]
+                  show_if: [ [ "certType", "=", "ixcert" ] ]
                   $ref:
                     - "definitions/certificate"
               - variable: authForwardURL
                 label: "Forward Authentication URL"
                 schema:
-                  show_if: [["certType", "!=", "disabled"]]
+                  show_if: [ [ "certType", "!=", "disabled" ] ]
                   type: string
                   default: ""
 
@@ -426,7 +425,7 @@ questions:
           description: "Additional groups this App needs access to"
           schema:
             type: list
-            default: []
+            default: [ ]
             items:
               - variable: Group
                 label: "Group"
