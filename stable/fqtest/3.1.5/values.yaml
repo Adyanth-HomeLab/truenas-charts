@@ -100,8 +100,8 @@ args:
   - trade
   - --config
   - /freqtrade/config/config.json
-  - --strategy
-  - {{ .Values.appConf.strategy_name }}
+#  - --strategy
+#  - {{ .Values.appConf.strategy_name }}
   - --db-url
   - sqlite:////sqlite/tradesv3.sqlite
 

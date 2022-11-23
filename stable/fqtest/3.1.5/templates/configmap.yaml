@@ -4,4 +4,7 @@ metadata:
   name: freqtrade-config
 data:
   config.json: |
-{{ toPrettyJson .Values.config | indent 4 }}
+    {
+      "strategy": "{{ .Values.appConf.strategy_name | quote }}"
+    {{ toJson .Values.config | indent 4 }}
+    }
