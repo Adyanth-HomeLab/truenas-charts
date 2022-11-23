@@ -1,0 +1,13 @@
+{
+  "pairlists": [
+    {
+      "method": "VolumePairList",
+      "number_assets": 50,
+      "sort_key": "quoteVolume"
+    },
+    {
+      "method": "AgeFilter",
+      "min_days_listed": 30
+    }
+  ]
+}

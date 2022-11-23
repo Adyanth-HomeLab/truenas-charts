@@ -1,3 +1,7 @@
+image:
+  base: freqtradeorg/freqtrade
+  tag: latest
+
 config:
   max_open_trades: 4
   stake_currency: "BUSD"
@@ -93,59 +97,12 @@ config:
   internals:
     process_throttle_secs: 2
 
-command:
-  - freqtrade
+ingress:
+  enabled: true
 
-args:
-  - trade
-  - --config
-  - /freqtrade/config/config.json
-  #  - --strategy
-  #  - {{ .Values.appConf.strategy_name }}
-  - --db-url
-  - sqlite:////sqlite/tradesv3.sqlite
+bot:
+  enabled: true
+  strategy_name: SampleStrategy
+  pvc_size: 1Gi
 
-strategy:
-  type: Recreate
-
-service:
-  main:
-    ports:
-      main:
-        port: 10215
-        protocol: HTTP
-        targetPort: 8080
-
-#Volumes creation
-persistence:
-  config:
-    enabled: true
-    mountPath: "/config"
-    emptyDir: true
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    storageClass: ""
-
-volumeClaimTemplates:
-  - name: freqtrade-sqlite
-    accessMode: "ReadWriteOnce"
-    size: 1Gi
-
-additionalVolumeMounts:
-  - mountPath: /freqtrade/user_data/strategies
-    name: strategies
-  - mountPath: /sqlite
-    name: sqlite
-#  - mountPath: /freqtrade/config
-#    name: config
-
-additionalVolumes:
-  - name: strategies
-    configMap:
-      name: freqtrade-strategies
-  - name: sqlite
-    persistentVolumeClaim:
-      claimName: freqtrade-sqlite
-#  - name: config
-#    configMap:
-#      name: freqtrade-config
+strategies: { }

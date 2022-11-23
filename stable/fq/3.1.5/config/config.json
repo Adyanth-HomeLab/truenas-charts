@@ -1,0 +1,27 @@
+{
+  "max_open_trades": 4,
+  "stake_currency": "BUSD",
+  "stake_amount": "unlimited",
+  "amend_last_stake_amount ": true,
+  "available_capital": 70,
+  "fiat_display_currency": "USD",
+  "dry_run": true,
+  "dry_run_wallet": 70,
+  "cancel_open_orders_on_exit": false,
+  "bot_name": "freqtrade_bot",
+  "initial_state": "running",
+  "force_entry_enable": false,
+  "internals": {
+    "process_throttle_secs": 5
+  },
+  "user_data_dir": "user_data",
+  "strategy": "Matoa",
+  "strategy_path": "freqtrade_strategies",
+  "add_config_files": [
+    "config-exchange.json",
+    "config-exchange-general.json",
+    "config-exchange-blacklist.json",
+    "config-orders.json",
+    "config-pairlist.json"
+  ]
+}
