@@ -7,7 +7,7 @@
 image:
   base: freqtradeorg/freqtrade
   pullPolicy: IfNotPresent
-  tag: develop
+  tag: 2022.10
 
 ##
 # Most other defaults are set in questions.yaml
