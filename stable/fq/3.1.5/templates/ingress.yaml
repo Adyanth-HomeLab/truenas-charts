@@ -17,14 +17,5 @@ spec:
             port:
               number: 8080
       {{- end }}
-      {{- if (and .Values.backtesting.results.enable_export .Values.backtesting.results.reader_enabled) }}
-      - path: /results
-        pathType: Prefix
-        backend:
-          service:
-            name: results-reader
-            port:
-              number: 80
-      {{- end }}
 ---
 {{- end }}
