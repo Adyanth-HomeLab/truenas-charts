@@ -26,6 +26,21 @@ portals:
     ports:
       - "$kubernetes-resource_configmap_portal_port"
 questions:
+  - variable: appConf
+    group: "App Configuration"
+    label: "Configure Application"
+    schema:
+      type: dict
+      hidden: true
+      attrs:
+        - variable: string
+          label: "Strategy"
+          description: "bot strategy"
+          schema:
+            hidden: false
+            editable: true
+            type: string
+            required: true
   - variable: portal
     group: "Container Image"
     label: "Configure Portal Button"

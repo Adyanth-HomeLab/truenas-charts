@@ -1,4 +1,3 @@
-{{- if .Values.create_strategies_configmap }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -8,5 +7,4 @@ data:
 {{ .Values.strategies | toYaml | indent 2 }}
 {{- else }}
 {{ (.Files.Glob "strategies/*").AsConfig | indent 2 }}
-{{- end }}
 {{- end }}
