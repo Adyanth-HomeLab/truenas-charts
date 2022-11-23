@@ -100,8 +100,8 @@ args:
   - trade
   - --config
   - /freqtrade/config/config.json
-#  - --strategy
-#  - {{ .Values.appConf.strategy_name }}
+  #  - --strategy
+  #  - {{ .Values.appConf.strategy_name }}
   - --db-url
   - sqlite:////sqlite/tradesv3.sqlite
 
@@ -118,21 +118,24 @@ volumeClaimTemplates:
     accessMode: "ReadWriteOnce"
     size: 1Gi
 
-additionalVolumeMounts:
-  - mountPath: /freqtrade/config
-    name: config
-  - mountPath: /freqtrade/user_data/strategies
-    name: strategies
-  - mountPath: /sqlite
-    name: sqlite
+#additionalVolumeMounts:
+#  - mountPath: /freqtrade/config
+#    name: config
+#  - mountPath: /freqtrade/user_data/strategies
+#    name: strategies
+#  - mountPath: /sqlite
+#    name: sqlite
 
 additionalVolumes:
   - name: config
+    mountPath: /freqtrade/config
     configMap:
       name: freqtrade-config
   - name: strategies
+    mountPath: /freqtrade/user_data/strategies
     configMap:
       name: freqtrade-strategies
   - name: sqlite
+    mountPath: /sqlite
     persistentVolumeClaim:
       claimName: freqtrade-sqlite
