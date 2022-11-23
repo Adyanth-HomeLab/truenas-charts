@@ -118,24 +118,23 @@ volumeClaimTemplates:
     accessMode: "ReadWriteOnce"
     size: 1Gi
 
-#additionalVolumeMounts:
+additionalVolumeMounts:
+  - mountPath: /freqtrade/user_data/strategies
+    name: strategies
+  - mountPath: /sqlite
+    name: sqlite
 #  - mountPath: /freqtrade/config
 #    name: config
-#  - mountPath: /freqtrade/user_data/strategies
-#    name: strategies
-#  - mountPath: /sqlite
-#    name: sqlite
+
+
 
 additionalVolumes:
-  - name: config
-    mountPath: /freqtrade/config
-    configMap:
-      name: freqtrade-config
   - name: strategies
-    mountPath: /freqtrade/user_data/strategies
     configMap:
       name: freqtrade-strategies
   - name: sqlite
-    mountPath: /sqlite
     persistentVolumeClaim:
       claimName: freqtrade-sqlite
+#  - name: config
+#    configMap:
+#      name: freqtrade-config
