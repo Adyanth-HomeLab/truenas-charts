@@ -32,16 +32,15 @@ questions:
     group: "App Configuration"
     label: "Configure Application"
     schema:
-      type: string
-      label: "Strategy"
-      description: "bot strategy"
-      default: "Matoa"
+      type: dict
       attrs:
         - variable: strategy_name
           schema:
+            default: "Matoa"
+            label: "Strategy"
+            type: string
             hidden: false
             editable: true
-            type: string
             required: true
   - variable: portal
     group: "Container Image"
