@@ -3,7 +3,7 @@
 image:
   repository: freqtradeorg/freqtrade
   pullPolicy: IfNotPresent
-  tag: 2022.10
+  tag: latest
 
 strategy:
   type: Recreate

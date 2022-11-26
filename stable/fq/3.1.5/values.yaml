@@ -102,7 +102,6 @@ ingress:
 
 bot:
   enabled: true
-  strategy_name: SampleStrategy
   pvc_size: 1Gi
 
 strategies: { }
