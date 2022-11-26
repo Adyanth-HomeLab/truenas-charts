@@ -4,10 +4,6 @@ kind: Deployment
 metadata:
   name: freqtrade
 spec:
-  securityContext:
-    runAsUser: {{ .Values.PUID }}
-    runAsGroup: {{ .Values.PGID }}
-    fsGroup: {{ .Values.PGID }}
   selector:
     matchLabels:
       app: freqtrade
@@ -16,6 +12,10 @@ spec:
       labels:
         app: freqtrade
     spec:
+      securityContext:
+        runAsUser: { { .Values.PUID } }
+        runAsGroup: { { .Values.PGID } }
+        fsGroup: { { .Values.PGID } }
       containers:
       - name: freqtrade
         image: {{ .Values.image.base }}:{{ .Values.image.tag }}
