@@ -62,10 +62,6 @@ kind: PersistentVolumeClaim
 metadata:
   name: freqtrade-sqlite
 spec:
-  securityContext:
-    runAsUser: {{ .Values.PUID }}
-    runAsGroup: {{ .Values.PGID }}
-    fsGroup: {{ .Values.PGID }}
   accessModes:
   - ReadWriteOnce
   resources:
