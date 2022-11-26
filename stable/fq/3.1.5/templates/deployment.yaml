@@ -4,6 +4,10 @@ kind: Deployment
 metadata:
   name: freqtrade
 spec:
+  securityContext:
+    runAsUser: {{ .Values.PUID }}
+    runAsGroup: {{ .Values.PGID }}
+    fsGroup: {{ .Values.PGID }}
   selector:
     matchLabels:
       app: freqtrade
@@ -32,8 +36,6 @@ spec:
             value: {{ .Values.PGID | quote }}
           - name: UMASK
             value: {{ .Values.UMASK | quote }}
-        securityContext:
-          fsGroup: {{ .Values.PGID }}
         volumeMounts:
         - mountPath: /freqtrade/config
           name: config
@@ -60,6 +62,10 @@ kind: PersistentVolumeClaim
 metadata:
   name: freqtrade-sqlite
 spec:
+  securityContext:
+    runAsUser: {{ .Values.PUID }}
+    runAsGroup: {{ .Values.PGID }}
+    fsGroup: {{ .Values.PGID }}
   accessModes:
   - ReadWriteOnce
   resources:
