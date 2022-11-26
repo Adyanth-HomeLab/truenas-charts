@@ -1,4 +1,3 @@
-{{- if .Values.bot.enabled }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -12,10 +11,6 @@ spec:
       labels:
         app: freqtrade
     spec:
-      securityContext:
-        runAsUser: {{ .Values.PUID }}
-        runAsGroup: {{ .Values.PGID }}
-        fsGroup: {{ .Values.PGID }}
       containers:
       - name: freqtrade
         image: {{ .Values.image.base }}:{{ .Values.image.tag }}
@@ -30,12 +25,12 @@ spec:
         - --db-url
         - sqlite:////sqlite/tradesv3.sqlite
         env:
-          - name: PUID
-            value: {{ .Values.PUID | quote }}
-          - name: PGID
-            value: {{ .Values.PGID | quote }}
-          - name: UMASK
-            value: {{ .Values.UMASK | quote }}
+#          - name: PUID
+#            value: {{ .Values.PUID | quote }}
+#          - name: PGID
+#            value: {{ .Values.PGID | quote }}
+#          - name: UMASK
+#            value: {{ .Values.UMASK | quote }}
         volumeMounts:
         - mountPath: /freqtrade/config
           name: config
@@ -67,4 +62,3 @@ spec:
   resources:
     requests:
       storage: {{ .Values.bot.pvc_size }}
-{{- end }}

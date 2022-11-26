@@ -1,4 +1,4 @@
-{{- if (and .Values.bot.enabled .Values.config.api_server.enabled) }}
+{{- if (.Values.config.api_server.enabled) }}
 apiVersion: v1
 kind: Service
 metadata:

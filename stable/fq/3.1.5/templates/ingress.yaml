@@ -8,7 +8,7 @@ spec:
   - host: localhost
     http:
       paths:
-      {{- if (and .Values.bot.enabled .Values.config.api_server.enabled) }}
+      {{- if (.Values.config.api_server.enabled) }}
       - pathType: Prefix
         path: "/"
         backend:

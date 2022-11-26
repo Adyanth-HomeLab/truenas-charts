@@ -106,9 +106,9 @@ ingress:
   enabled: true
 
 bot:
-  enabled: true
   pvc_size: 1Gi
 
-
+appConf:
+  strategy_name: "SampleStrategy"
 
 strategies: { }
