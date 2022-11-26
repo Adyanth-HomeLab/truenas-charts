@@ -2,6 +2,11 @@ image:
   base: freqtradeorg/freqtrade
   tag: latest
 
+PUID: 568
+PGID: 568
+UMASK: "002"
+fixMountPermissions: true
+
 config:
   max_open_trades: 4
   stake_currency: "BUSD"
@@ -103,5 +108,7 @@ ingress:
 bot:
   enabled: true
   pvc_size: 1Gi
+
+
 
 strategies: { }

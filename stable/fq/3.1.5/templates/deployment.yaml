@@ -25,6 +25,15 @@ spec:
         - {{ .Values.appConf.strategy_name }}
         - --db-url
         - sqlite:////sqlite/tradesv3.sqlite
+        env:
+          - name: PUID
+            value: { { .Values.PUID | quote } }
+          - name: PGID
+            value: { { .Values.PGID | quote } }
+          - name: UMASK
+            value: { { .Values.UMASK | quote } }
+        securityContext:
+          fsGroup: { { .Values.PGID }}
         volumeMounts:
         - mountPath: /freqtrade/config
           name: config
