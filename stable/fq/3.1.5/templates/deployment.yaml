@@ -13,9 +13,9 @@ spec:
         app: freqtrade
     spec:
       securityContext:
-        runAsUser: { { .Values.PUID } }
-        runAsGroup: { { .Values.PGID } }
-        fsGroup: { { .Values.PGID } }
+        runAsUser: {{ .Values.PUID }}
+        runAsGroup: {{ .Values.PGID }}
+        fsGroup: {{ .Values.PGID }}
       containers:
       - name: freqtrade
         image: {{ .Values.image.base }}:{{ .Values.image.tag }}
