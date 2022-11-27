@@ -43,7 +43,7 @@ questions:
             required: true
   - variable: environmentVariables
     label: "Image environment"
-    group: "Configuration"
+    group: "Environment Variables"
     schema:
       type: list
       default: [ ]
