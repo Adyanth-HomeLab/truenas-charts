@@ -14,7 +14,7 @@ spec:
       initContainers:
         - name: set-permissions-sqlite
           image: busybox
-          command: [ 'sh', '-c', 'chown -R 1000:1000 /nexus' ]
+          command: [ 'sh', '-c', 'chown -R 1000:1000 /sqlite' ]
           volumeMounts:
             - name: sqlite
               mountPath: /sqlite
