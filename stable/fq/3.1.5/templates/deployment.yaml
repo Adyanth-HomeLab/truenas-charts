@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: freqtrade
-          image: { .Values.image.base }}:{{ .Values.image.tag }}
+          image: {{ .Values.image.base }}:{{ .Values.image.tag }}
           command: [ "/bin/sh", "-c" ]
           args:
             - chown -R 1000:1000 /sqlite;
