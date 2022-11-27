@@ -8,7 +8,7 @@ spec:
   - host: localhost
     http:
       paths:
-      {{- if (.Values.config.api_server.enabled) }}
+      {{- if (.Values.appConf.enable_ui) }}
       - pathType: Prefix
         path: "/"
         backend:

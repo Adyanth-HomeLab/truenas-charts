@@ -18,6 +18,14 @@ questions:
             hidden: false
             editable: true
             required: true
+        - variable: enable_ui
+          label: "Enable UI"
+          schema:
+            type: boolean
+            default: true
+            hidden: false
+            editable: true
+            required: true
   - variable: network
     group: "Network Configuration"
     label: "Configure Network"
