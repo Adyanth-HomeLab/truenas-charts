@@ -17,11 +17,6 @@ sources:
   - https://github.com/Oddwerth/freqtrade
   - https://github.com/freqtrade/freqtrade
   - https://hub.docker.com/r/freqtradeorg/freqtrade/
-dependencies:
-  - name: common
-    repository: https://truecharts.org/
-    version: 3.5.5
-    # condition:
 maintainers:
   - name: Oddwerth
     email: hello@lucasmichalet.fr
