@@ -25,7 +25,6 @@ questions:
             default: true
             hidden: false
             editable: true
-            required: true
   - variable: network
     group: "Network Configuration"
     label: "Configure Network"
