@@ -29,8 +29,8 @@ spec:
             - /freqtrade/config/config.json
             - --strategy
             - {{ .Values.appConf.strategy_name }}
-            - --db-url
-            - sqlite:////sqlite/tradesv3.sqlite
+           # - --db-url
+           # - sqlite:////sqlite/tradesv3.sqlite
           volumeMounts:
             - mountPath: /freqtrade/config
               name: config
