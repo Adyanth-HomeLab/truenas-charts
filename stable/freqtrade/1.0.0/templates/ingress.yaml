@@ -1,4 +1,4 @@
-{{- if .Values.ingress.enabled }}
+{{- if .Values.appConf.enable_ui }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -8,7 +8,6 @@ spec:
   - host: localhost
     http:
       paths:
-      {{- if (.Values.appConf.enable_ui) }}
       - pathType: Prefix
         path: "/"
         backend:
@@ -16,6 +15,5 @@ spec:
             name: freqtrade-ui
             port:
               number: 8080
-      {{- end }}
 ---
 {{- end }}
