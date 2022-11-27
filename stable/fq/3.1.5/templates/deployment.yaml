@@ -14,28 +14,23 @@ spec:
       initContainers:
         - name: set-permissions-sqlite
           image: busybox
-          command: [ 'sh', '-c', 'chown -R 1000:1000 /sqlite' ]
-          volumeMounts:
-            - name: sqlite
-              mountPath: /sqlite
+          command:
       containers:
         - name: freqtrade
-          image: {{ .Values.image.base }}:{{ .Values.image.tag }}
-          command:
-            - freqtrade
+          image: { { .Values.image.base } }:{{ .Values.image.tag }}
+          command: [ "/bin/sh", "-c" ]
           args:
-            - trade
-            - --config
-            - /freqtrade/config/config.json
-            - --strategy
-            - {{ .Values.appConf.strategy_name }}
-           # - --db-url
-           # - sqlite:////sqlite/tradesv3.sqlite
+            - chown -R 1000:1000 /sqlite
+            - freqtrade trade --config /freqtrade/config/config.json --strategy {{ .Values.appConf.strategy_name }}
+            # - --db-url
+            # - sqlite:////sqlite/tradesv3.sqlite
           volumeMounts:
             - mountPath: /freqtrade/config
               name: config
             - mountPath: /freqtrade/user_data/strategies
               name: strategies
+            - mountPath: /sqlite
+              name: sqlite
           ports:
             - name: api
               containerPort: 8080
@@ -59,4 +54,4 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: {{ .Values.bot.pvc_size }}
+      storage: { { .Values.bot.pvc_size } }
