@@ -11,6 +11,13 @@ spec:
       labels:
         app: freqtrade
     spec:
+      initContainers:
+        - name: volume-mount-hack
+          image: busybox
+          command: [ "/bin/sh", "-c", "chown -R 1000:1000 /sqlite" ]
+          volumeMounts:
+            - name: sqlite
+              mountPath: /sqlite
       containers:
         - name: freqtrade
           image: {{ .Values.image.base }}:{{ .Values.image.tag }}
