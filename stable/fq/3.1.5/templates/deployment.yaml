@@ -11,39 +11,44 @@ spec:
       labels:
         app: freqtrade
     spec:
+      initContainers:
+        - name: set-permissions-sqlite
+          image: busybox
+          command: [ 'sh', '-c', 'chown -R 1000:1000 /nexus' ]
+          volumeMounts:
+            - name: sqlite
+              mountPath: /sqlite
       containers:
-      - name: freqtrade
-        image: {{ .Values.image.base }}:{{ .Values.image.tag }}
-        command:
-        - freqtrade
-        args:
-        - trade
-        - --config
-        - /freqtrade/config/config.json
-        - --strategy
-        - {{ .Values.appConf.strategy_name }}
-#        - --db-url
-#        - sqlite:////sqlite/tradesv3.sqlite
-        volumeMounts:
-        - mountPath: /freqtrade/config
-          name: config
-        - mountPath: /freqtrade/user_data/strategies
-          name: strategies
-        - mountPath: /sqlite
-          name: sqlite
-        ports:
-        - name: api
-          containerPort: 8080
+        - name: freqtrade
+          image: {{ .Values.image.base }}:{{ .Values.image.tag }}
+          command:
+            - freqtrade
+          args:
+            - trade
+            - --config
+            - /freqtrade/config/config.json
+            - --strategy
+            - {{ .Values.appConf.strategy_name }}
+            - --db-url
+            - sqlite:////sqlite/tradesv3.sqlite
+          volumeMounts:
+            - mountPath: /freqtrade/config
+              name: config
+            - mountPath: /freqtrade/user_data/strategies
+              name: strategies
+          ports:
+            - name: api
+              containerPort: 8080
       volumes:
-      - name: config
-        configMap:
-          name: freqtrade-config
-      - name: strategies
-        configMap:
-          name: freqtrade-strategies
-      - name: sqlite
-        persistentVolumeClaim:
-          claimName: freqtrade-sqlite
+        - name: config
+          configMap:
+            name: freqtrade-config
+        - name: strategies
+          configMap:
+            name: freqtrade-strategies
+        - name: sqlite
+          persistentVolumeClaim:
+            claimName: freqtrade-sqlite
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -51,7 +56,7 @@ metadata:
   name: freqtrade-sqlite
 spec:
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   resources:
     requests:
       storage: {{ .Values.bot.pvc_size }}
