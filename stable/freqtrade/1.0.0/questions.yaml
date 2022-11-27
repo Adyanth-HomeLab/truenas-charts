@@ -3,6 +3,8 @@ groups:
     description: "Configure Application"
   - name: "Network Configuration"
     description: "Configure Network"
+  - name: "Environment Variables"
+    description: "Configure Environment Variables"
 questions:
   - variable: appConf
     group: "App Configuration"
@@ -39,3 +41,23 @@ questions:
             hidden: false
             editable: true
             required: true
+  - variable: environmentVariables
+    label: "Image environment"
+    group: "Configuration"
+    schema:
+      type: list
+      default: [ ]
+      items:
+        - variable: environmentVariable
+          label: "Environment Variable"
+          schema:
+            type: dict
+            attrs:
+              - variable: name
+                label: "Name"
+                schema:
+                  type: string
+              - variable: value
+                label: "Value"
+                schema:
+                  type: string

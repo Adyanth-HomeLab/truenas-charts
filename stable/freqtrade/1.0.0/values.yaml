@@ -97,9 +97,6 @@ config:
   internals:
     process_throttle_secs: 2
 
-ingress:
-  enabled: true
-
 bot:
   pvc_size: 1Gi
 
