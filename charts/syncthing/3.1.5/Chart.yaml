@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: syncthing
-version: Stash86
+version: 1.0.0
 # upstream_version:
 appVersion: "auto"
 description: P2P file synchronization application

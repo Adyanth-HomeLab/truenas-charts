@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: fq
-version: Stash86
+version: 1.0.0
 upstream_version: 7.0.1
 appVersion: "auto"
 description: Free, open source crypto trading bot.
