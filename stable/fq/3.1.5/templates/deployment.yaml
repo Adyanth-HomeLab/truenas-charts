@@ -11,17 +11,13 @@ spec:
       labels:
         app: freqtrade
     spec:
-      initContainers:
-        - name: set-permissions-sqlite
-          image: busybox
-          command:
       containers:
         - name: freqtrade
           image: { { .Values.image.base } }:{{ .Values.image.tag }}
           command: [ "/bin/sh", "-c" ]
           args:
-            - chown -R 1000:1000 /sqlite
-            - freqtrade trade --config /freqtrade/config/config.json --strategy {{ .Values.appConf.strategy_name }}
+            - chown -R 1000:1000 /sqlite;
+            - freqtrade trade --config /freqtrade/config/config.json --strategy {{ .Values.appConf.strategy_name }};
             # - --db-url
             # - sqlite:////sqlite/tradesv3.sqlite
           volumeMounts:
