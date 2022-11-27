@@ -4,9 +4,10 @@
 
 Free, open source crypto trading bot
 
-
-TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
-**This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
+TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a
+stand-alone helm installation.
+**This chart is not maintained by the upstream project and any issues with the chart should be
+raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
@@ -29,6 +30,25 @@ To install the chart with the release name `freqtrade`
 - Click "Install" for this specific Apps
 - Fill out the configuration form
 
+## ENV Variables
+
+Minimum ENV Variables to get started
+
+You can override any ENV variable from
+the [freqtrade](https://www.freqtrade.io/en/latest/docker_quickstart/#configuration) container by
+setting ```FREQTRADE__``` prefix to the variable name. For example, to override the ```dry_run``` variable, you would
+set the ```FREQTRADE__DRY_RUN``` environment variable.
+
+
+```
+FREQTRADE__EXCHANGE__NAME=
+FREQTRADE__EXCHANGE__KEY=
+FREQTRADE__EXCHANGE__SECRET=
+FREQTRADE__API_SERVER__JWT_SECRET_KEY=
+FREQTRADE__API_SERVER_USERNAME=
+FREQTRADE__API_SERVER_PASSWORD=
+```
+
 ## Uninstalling the Chart
 
 To uninstall the `freqtrade` deployment
@@ -39,7 +59,8 @@ To uninstall the `freqtrade` deployment
 - Expand the menu in the top-right corner of this App
 - Click "Remove" for this specific Apps
 
-The command removes all the Kubernetes components associated with the chart **including storage volumes** _(Except hostPath Storage)_ and deletes the release.
+The command removes all the Kubernetes components associated with the chart **including storage volumes** _(Except
+hostPath Storage)_ and deletes the release.
 
 ## Support
 
