@@ -94,6 +94,8 @@ config:
     password: '22'
   telegram:
     enabled: false
+    token: '33'
+    chat_id: '44'
     keyboard:
       - [ "/start", "/stop", "/status" ]
       - [ "/profit", "/balance", "/performance" ]
