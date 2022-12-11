@@ -101,9 +101,9 @@ config:
       - [ "/profit", "/balance", "/performance" ]
       - [ "/count", "/daily", "/help" ]
       - [ "/forcesell", "/performance", "/daily" ]
-      - [ "/reload_conf", "/stopbuy", "/whitelist" ]
+      - [ "/reload_config", "/stopbuy", "/whitelist" ]
       - [ "/blacklist", "/edge", "/logs" ]
-      - [ "/version", "/health", "/freqtrade" ]
+      - [ "/version", "/health" ]
     notification_settings:
       status: "silent"
       warning: "on"
